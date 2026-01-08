@@ -86,7 +86,7 @@ async def setup(bot, user):
     current_prefix = get_live_prefix()
     
     # Copy media command (b)
-    @user.on(events.NewMessage(outgoing=True, from_users=OWNER_ID, pattern=f'^{current_prefix}b$'))
+    @user.on(events.NewMessage(outgoing=True, from_users=OWNER_ID, pattern=f'^{current_prefix}curi$'))
     async def copy_media_handler(event):
         """Copy media to buffer"""
         reply = await event.get_reply_message()
@@ -126,7 +126,7 @@ async def setup(bot, user):
             await event.delete()
 
     # Paste media command (t)
-    @user.on(events.NewMessage(outgoing=True, from_users=OWNER_ID, pattern=f'^{current_prefix}t(?: |$)(.*)'))
+    @user.on(events.NewMessage(outgoing=True, from_users=OWNER_ID, pattern=f'^{current_prefix}hasil(?: |$)(.*)'))
     async def paste_media_handler(event):
         """Paste media from buffer"""
         if not media_buffer.buffered_media or not os.path.exists(media_buffer.buffered_media):
